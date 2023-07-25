@@ -1,0 +1,22 @@
+from replit import clear
+
+def bidder_info(name, bid):
+    bidders[str(name)] = int(bid)
+
+bidders = {}
+continue_bidding = True
+while continue_bidding:
+  high_score = 0
+  name = input("What is your name? ")
+  bid = input("What's your bid?:  $")
+  other_bidder = input("Are there any other bidders? ")
+  bidder_info(name, bid)
+  if other_bidder == "no":
+    for items in bidders:
+      bid_price = bidders[(items)]
+      if bid_price > high_score:
+        high_score = bid_price
+        continue_bidding = False
+    print(f"The highest bidder is {items} with a bid of {high_score}")
+  if other_bidder == "yes":
+    clear()
